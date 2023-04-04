@@ -1,0 +1,42 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>com.daxa.daxa_glsl</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <name>Daxa_glsl</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor email="support@daxa.com" url="https://www.daxa.com">Daxa</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <description><![CDATA[
+    Daxa specific shader plugin support.
+    supports includes and stuff
+  ]]></description>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+        <fileType
+                name="Daxa Glsl Shader"
+                implementationClass="daxa_glsl.language.property.DaxaGlslFileType"
+                fieldName="INSTANCE"
+                language="DaxaGlsl"
+                extensions="glsl;frag;fsh;vert;vsh;tesc;tese;geom;comp;shader"/>
+
+        <lang.parserDefinition
+                language="DaxaGlsl"
+                implementationClass="daxa_glsl.language.DaxaGlslParserDefinition"/>
+        <lang.syntaxHighlighterFactory
+                language="DaxaGlsl"
+                implementationClass="daxa_glsl.language.utility.DaxaGlslSyntaxHighlighterFactory"/>
+    </extensions>
+</idea-plugin>
